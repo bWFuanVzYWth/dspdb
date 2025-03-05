@@ -22,7 +22,7 @@ pub struct RecipeItem {
     #[serde(rename = "Name")]
     pub name: String,
     #[serde(rename = "ID")]
-    pub id: i16,
+    pub id: i64,
     #[serde(rename = "SID")]
     pub sid: String,
     #[serde(rename = "Type")]
@@ -34,11 +34,11 @@ pub struct RecipeItem {
     #[serde(rename = "TimeSpend")]
     pub time_spend: i64,
     #[serde(rename = "Items")]
-    pub items: Vec<i64>,
+    pub items: Vec<i16>,
     #[serde(rename = "ItemCounts")]
     pub item_counts: Vec<i64>,
     #[serde(rename = "Results")]
-    pub results: Vec<i64>,
+    pub results: Vec<i16>,
     #[serde(rename = "ResultCounts")]
     pub result_counts: Vec<i64>,
     #[serde(rename = "GridIndex")]
