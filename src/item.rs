@@ -4,15 +4,15 @@ use std::collections::HashMap;
 #[derive(Debug, Deserialize)]
 pub struct GameObject {
     #[serde(rename = "m_FileID")]
-    pub file_id: i32,
+    pub file_id: i64,
     #[serde(rename = "m_PathID")]
-    pub path_id: i32,
+    pub path_id: i64,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct Vector2 {
-    pub x: f32,
-    pub y: f32,
+    pub x: f64,
+    pub y: f64,
 }
 
 #[derive(Debug, Deserialize)]
@@ -20,23 +20,23 @@ pub struct ItemData {
     #[serde(rename = "Name")]
     pub name: String,
     #[serde(rename = "ID")]
-    pub id: i32,
+    pub id: i16,
     #[serde(rename = "SID")]
     pub sid: String,
     #[serde(rename = "Type")]
-    pub type_: i32, // 避讳关键字 "type"
+    pub type_: i64, // 避讳关键字 "type"
     #[serde(rename = "SubID")]
-    pub sub_id: i32,
+    pub sub_id: i64,
     #[serde(rename = "MiningFrom")]
     pub mining_from: String,
     #[serde(rename = "ProduceFrom")]
     pub produce_from: String,
     #[serde(rename = "StackSize")]
-    pub stack_size: i32,
+    pub stack_size: i64,
     #[serde(rename = "Grade")]
-    pub grade: i32,
+    pub grade: i64,
     #[serde(rename = "Upgrades")]
-    pub upgrades: Vec<i32>,
+    pub upgrades: Vec<i64>,
     #[serde(rename = "IsFluid")]
     pub is_fluid: bool,
     #[serde(rename = "IsEntity")]
@@ -48,55 +48,55 @@ pub struct ItemData {
     #[serde(rename = "IconPath")]
     pub icon_path: String,
     #[serde(rename = "ModelIndex")]
-    pub model_index: i32,
+    pub model_index: i64,
     #[serde(rename = "ModelCount")]
-    pub model_count: i32,
+    pub model_count: i64,
     #[serde(rename = "HpMax")]
-    pub hp_max: i32,
+    pub hp_max: i64,
     #[serde(rename = "Ability")]
-    pub ability: i32,
+    pub ability: i64,
     #[serde(rename = "HeatValue")]
-    pub heat_value: i32,
+    pub heat_value: i64,
     #[serde(rename = "Potential")]
-    pub potential: i32,
+    pub potential: i64,
     #[serde(rename = "ReactorInc")]
-    pub reactor_inc: f32,
+    pub reactor_inc: f64,
     #[serde(rename = "FuelType")]
-    pub fuel_type: i32,
+    pub fuel_type: i64,
     #[serde(rename = "AmmoType")]
-    pub ammo_type: i32,
+    pub ammo_type: i64,
     #[serde(rename = "BombType")]
-    pub bomb_type: i32,
+    pub bomb_type: i64,
     #[serde(rename = "CraftType")]
-    pub craft_type: i32,
+    pub craft_type: i64,
     #[serde(rename = "BuildIndex")]
-    pub build_index: i32,
+    pub build_index: i64,
     #[serde(rename = "BuildMode")]
-    pub build_mode: i32,
+    pub build_mode: i64,
     #[serde(rename = "GridIndex")]
-    pub grid_index: i32,
+    pub grid_index: i64,
     #[serde(rename = "UnlockKey")]
-    pub unlock_key: i32,
+    pub unlock_key: i64,
     #[serde(rename = "PreTechOverride")]
-    pub pre_tech_override: i32,
+    pub pre_tech_override: i64,
     #[serde(rename = "Productive")]
     pub productive: bool,
     #[serde(rename = "MechaMaterialID")]
-    pub mecha_material_id: i32,
+    pub mecha_material_id: i64,
     #[serde(rename = "DropRate")]
-    pub drop_rate: f32,
+    pub drop_rate: f64,
     #[serde(rename = "EnemyDropLevel")]
-    pub enemy_drop_level: i32,
+    pub enemy_drop_level: i64,
     #[serde(rename = "EnemyDropRange")]
     pub enemy_drop_range: Vector2,
     #[serde(rename = "EnemyDropCount")]
-    pub enemy_drop_count: f32,
+    pub enemy_drop_count: f64,
     #[serde(rename = "EnemyDropMask")]
-    pub enemy_drop_mask: i32,
+    pub enemy_drop_mask: i64,
     #[serde(rename = "EnemyDropMaskRatio")]
-    pub enemy_drop_mask_ratio: f32,
+    pub enemy_drop_mask_ratio: f64,
     #[serde(rename = "DescFields")]
-    pub desc_fields: Vec<i32>,
+    pub desc_fields: Vec<i64>,
     #[serde(rename = "Description")]
     pub description: String,
 }
@@ -106,7 +106,7 @@ pub struct ItemProtoSet {
     #[serde(rename = "m_GameObject")]
     pub game_object: GameObject,
     #[serde(rename = "m_Enabled")]
-    pub enabled: i32,
+    pub enabled: i64,
     #[serde(rename = "m_Script")]
     pub script: GameObject,
     #[serde(rename = "m_Name")]
