@@ -19,21 +19,36 @@ pub struct ScriptInfo {
 
 #[derive(Debug, Deserialize)]
 pub struct RecipeItem {
-    pub Name: String,
-    pub ID: i32,
-    pub SID: String,
-    pub Type: i32,
-    pub Handcraft: bool,
-    pub Explicit: bool,
-    pub TimeSpend: i32,
-    pub Items: Vec<i32>,
-    pub ItemCounts: Vec<i32>,
-    pub Results: Vec<i32>,
-    pub ResultCounts: Vec<i32>,
-    pub GridIndex: i32,
-    pub IconPath: String,
-    pub Description: String,
-    pub NonProductive: bool,
+    #[serde(rename = "Name")]
+    pub name: String,
+    #[serde(rename = "ID")]
+    pub id: i32,
+    #[serde(rename = "SID")]
+    pub sid: String,
+    #[serde(rename = "Type")]
+    pub type_: i32, // 避讳关键字 "type"
+    #[serde(rename = "Handcraft")]
+    pub handcraft: bool,
+    #[serde(rename = "Explicit")]
+    pub explicit: bool,
+    #[serde(rename = "TimeSpend")]
+    pub time_spend: i32,
+    #[serde(rename = "Items")]
+    pub items: Vec<i32>,
+    #[serde(rename = "ItemCounts")]
+    pub item_counts: Vec<i32>,
+    #[serde(rename = "Results")]
+    pub results: Vec<i32>,
+    #[serde(rename = "ResultCounts")]
+    pub result_counts: Vec<i32>,
+    #[serde(rename = "GridIndex")]
+    pub grid_index: i32,
+    #[serde(rename = "IconPath")]
+    pub icon_path: String,
+    #[serde(rename = "Description")]
+    pub description: String,
+    #[serde(rename = "NonProductive")]
+    pub non_productive: bool,
 }
 
 #[derive(Debug, Deserialize)]
@@ -46,9 +61,12 @@ pub struct RecipeProtoSet {
     pub script: ScriptInfo,
     #[serde(rename = "m_Name")]
     pub name: String,
-    pub TableName: String,
-    pub Signature: String,
-    pub dataArray: Vec<RecipeItem>,
+    #[serde(rename = "TableName")]
+    pub table_name: String,
+    #[serde(rename = "Signature")]
+    pub signature: String,
+    #[serde(rename = "dataArray")]
+    pub data_array: Vec<RecipeItem>,
 }
 
 pub fn recipe() -> RecipeProtoSet {
