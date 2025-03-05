@@ -69,7 +69,7 @@ pub struct RecipeProtoSet {
     pub data_array: Vec<RecipeItem>,
 }
 
-pub fn recipe() -> RecipeProtoSet {
+pub fn recipes() -> RecipeProtoSet {
     let json_str = include_str!("../data/RecipeProtoSet.json");
     serde_json::from_str(json_str).unwrap()
 }
