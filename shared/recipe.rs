@@ -1,4 +1,4 @@
-#[derive(Debug, serde::Deserialize)]
+#[derive(serde::Deserialize)]
 struct RecipeItem {
     #[serde(rename = "Name")]
     name: String,
