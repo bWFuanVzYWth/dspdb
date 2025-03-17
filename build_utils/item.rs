@@ -113,7 +113,7 @@ impl fmt::Debug for ItemData {
 fn gen_items_data(items: &ItemProtoSet, file: &mut BufWriter<File>) {
     write!(
         file,
-        "fn items_data() -> Vec<ItemData> {{ vec!{:#?} }}",
+        "pub fn items_data() -> Vec<ItemData> {{ vec!{:#?} }}",
         items.data_array
     )
     .unwrap();

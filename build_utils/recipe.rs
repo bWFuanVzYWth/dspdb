@@ -80,7 +80,7 @@ fn gen_recipes_struct(file: &mut BufWriter<File>) {
 fn gen_recipes_data(recipes: &RecipeProtoSet, file: &mut BufWriter<File>) {
     write!(
         file,
-        "fn recipes_data() -> Vec<RecipeItem> {{ vec!{:#?} }}",
+        "pub fn recipes_data() -> Vec<RecipeItem> {{ vec!{:#?} }}",
         recipes.data_array
     )
     .unwrap();
