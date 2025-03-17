@@ -1,33 +1,33 @@
 #[derive(serde::Deserialize)]
-struct RecipeItem {
+pub struct RecipeItem {
     #[serde(rename = "Name")]
-    name: String,
+    pub name: String,
     #[serde(rename = "ID")]
-    id: i64,
+    pub id: i64,
     #[serde(rename = "SID")]
-    sid: String,
+    pub sid: String,
     #[serde(rename = "Type")]
-    type_: i64, // 避讳关键字 "type"
+    pub type_: i64, // 避讳关键字 "type"
     #[serde(rename = "Handcraft")]
-    handcraft: bool,
+    pub handcraft: bool,
     #[serde(rename = "Explicit")]
-    explicit: bool,
+    pub explicit: bool,
     #[serde(rename = "TimeSpend")]
-    time_spend: i64,
+    pub time_spend: i64,
     #[serde(rename = "Items")]
-    items: Vec<i16>,
+    pub items: Vec<i16>,
     #[serde(rename = "ItemCounts")]
-    item_counts: Vec<i64>,
+    pub item_counts: Vec<i64>,
     #[serde(rename = "Results")]
-    results: Vec<i16>,
+    pub results: Vec<i16>,
     #[serde(rename = "ResultCounts")]
-    result_counts: Vec<i64>,
+    pub result_counts: Vec<i64>,
     #[serde(rename = "GridIndex")]
-    grid_index: i64,
+    pub grid_index: i64,
     #[serde(rename = "IconPath")]
-    icon_path: String,
+    pub icon_path: String,
     #[serde(rename = "Description")]
-    description: String,
+    pub description: String,
     #[serde(rename = "NonProductive")]
-    non_productive: bool,
+    pub non_productive: bool,
 }
