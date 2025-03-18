@@ -45,13 +45,26 @@ fn gen_items_id(items: &ItemProtoSet, file: &mut BufWriter<File>) {
 
     writeln!(
         file,
-        " static ITEMS_ID: phf::Map<&'static str, i16> = {};",
+        "static ITEMS_ID: phf::Map<&'static str, i16> = {};",
         phf.build()
     )
     .unwrap();
 }
 
-// 手动实现 Debug trait
+fn gen_items_name(items: &ItemProtoSet, file: &mut BufWriter<File>) {
+    let mut phf = phf_codegen::Map::new();
+    for item in &items.data_array {
+        phf.entry(&item.id, &format!("{:?}", &item.name));
+    }
+
+    writeln!(
+        file,
+        "static ITEMS_NAME: phf::Map<i16, &'static str> = {};",
+        phf.build()
+    )
+    .unwrap();
+}
+
 impl fmt::Debug for ItemData {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         writeln!(f, "ItemData {{").unwrap();
@@ -77,7 +90,7 @@ impl fmt::Debug for ItemData {
         writeln!(f, "ability: {},", &self.ability).unwrap();
         writeln!(f, "heat_value: {},", &self.heat_value).unwrap();
         writeln!(f, "potential: {},", &self.potential).unwrap();
-        writeln!(f, "reactor_inc: {:.15},", &self.reactor_inc).unwrap();
+        writeln!(f, "reactor_inc: {:?},", &self.reactor_inc).unwrap();
         writeln!(f, "fuel_type: {},", &self.fuel_type).unwrap();
         writeln!(f, "ammo_type: {},", &self.ammo_type).unwrap();
         writeln!(f, "bomb_type: {},", &self.bomb_type).unwrap();
@@ -89,14 +102,14 @@ impl fmt::Debug for ItemData {
         writeln!(f, "pre_tech_override: {},", &self.pre_tech_override).unwrap();
         writeln!(f, "productive: {},", &self.productive).unwrap();
         writeln!(f, "mecha_material_id: {},", &self.mecha_material_id).unwrap();
-        writeln!(f, "drop_rate: {:.15},", &self.drop_rate).unwrap();
+        writeln!(f, "drop_rate: {:?},", &self.drop_rate).unwrap();
         writeln!(f, "enemy_drop_level: {},", &self.enemy_drop_level).unwrap();
         writeln!(f, "enemy_drop_range: {:?},", &self.enemy_drop_range).unwrap();
-        writeln!(f, "enemy_drop_count: {:.15},", &self.enemy_drop_count).unwrap();
+        writeln!(f, "enemy_drop_count: {:?},", &self.enemy_drop_count).unwrap();
         writeln!(f, "enemy_drop_mask: {},", &self.enemy_drop_mask).unwrap();
         writeln!(
             f,
-            "enemy_drop_mask_ratio: {:.15},",
+            "enemy_drop_mask_ratio: {:?},",
             &self.enemy_drop_mask_ratio
         )
         .unwrap();
@@ -132,5 +145,6 @@ pub fn gen_items() {
 
     gen_items_struct(&mut file);
     gen_items_id(&items, &mut file);
+    gen_items_name(&items, &mut file);
     gen_items_data(&items, &mut file);
 }
