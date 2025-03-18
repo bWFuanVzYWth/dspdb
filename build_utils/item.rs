@@ -45,7 +45,7 @@ fn gen_items_id(items: &ItemProtoSet, file: &mut BufWriter<File>) {
 
     writeln!(
         file,
-        "static ITEMS_ID: phf::Map<&'static str, i16> = {};",
+        "pub static ITEMS_ID: phf::Map<&'static str, i16> = {};",
         phf.build()
     )
     .unwrap();
@@ -59,7 +59,7 @@ fn gen_items_name(items: &ItemProtoSet, file: &mut BufWriter<File>) {
 
     writeln!(
         file,
-        "static ITEMS_NAME: phf::Map<i16, &'static str> = {};",
+        "pub static ITEMS_NAME: phf::Map<i16, &'static str> = {};",
         phf.build()
     )
     .unwrap();
